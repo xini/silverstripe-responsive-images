@@ -24,24 +24,26 @@
 					}
 				}
 
-			// Find any existing img element in the picture element
-			var picImg = ps[ i ].getElementsByTagName( "img" )[ 0 ];
+				// Find any existing img element in the picture element
+				var picImg = ps[ i ].getElementsByTagName( "img" )[ 0 ];
 
-			if( matches.length ){
-				var matchedEl = matches.pop();
-				if( !picImg || picImg.parentNode.nodeName === "NOSCRIPT" ){
-					picImg = w.document.createElement( "img" );
-					picImg.alt = ps[ i ].getAttribute( "data-alt" );
+				if( matches.length ){
+					var matchedEl = matches.pop();
+					if( !picImg || picImg.parentNode.nodeName === "NOSCRIPT" ){
+						picImg = w.document.createElement( "img" );
+						picImg.alt = ps[ i ].getAttribute( "data-alt" );
+					}
+
+					picImg.src =  matchedEl.getAttribute( "data-src" );
+					matchedEl.appendChild( picImg );
 				}
-
-				picImg.src =  matchedEl.getAttribute( "data-src" );
-				matchedEl.appendChild( picImg );
-			}
-			else if( picImg ){
-				picImg.parentNode.removeChild( picImg );
+				else if( picImg ){
+					picImg.parentNode.removeChild( picImg );
+				}
 			}
 		}
-		}
+		// ADDITION: trigger complete event (see https://github.com/scottjehl/picturefill/issues/53)
+		$(w).trigger("complete.picturefill");
 	};
 
 	// Run on resize and domready (w.load as a fallback)
