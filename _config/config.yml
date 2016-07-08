@@ -3,4 +3,4 @@ Name: responsiveimages
 ---
 Image:
   extensions:
-    - Heyday\ResponsiveImages\ResponsiveImageExtension
+    - ResponsiveImageExtension

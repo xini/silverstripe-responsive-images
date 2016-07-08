@@ -1,13 +1,5 @@
 <?php
 
-namespace Heyday\ResponsiveImages;
-
-use ArrayData;
-use ArrayList;
-use Config;
-use Exception;
-use Requirements;
-
 /**
  * An extension to the Image class to inject methods for responsive image sets.
  * Image sets are defined in the config layer, e.g:
@@ -25,7 +17,7 @@ use Requirements;
  * This provides $MyImage.MyResponsiveImageSet to the template. For more
  * documentation on implementation, see the README file.
  */
-class ResponsiveImageExtension extends \Extension
+class ResponsiveImageExtension extends Extension
 {
     /**
      * @var array
